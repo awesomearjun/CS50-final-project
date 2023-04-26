@@ -5,18 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/static/showPassword.js" defer></script>
     <title>Blogs</title>
-    <script src="../javascript/showpassword.js"></script>
 </head>
 
 <body>
     <form action="/register" method="POST">
         <input type="username" placeholder="Username" required minlength="5" maxlength="10" name="username" />
-        <input type="password" placeholder="Password" required minlength="5" maxlength="12" name="password" id="password" />
-        <input type="checkbox" id="showPass" />
+        <input type="password" placeholder="Password" required minlength="5" maxlength="12" name="password"
+            id="password" />
+        <input type="checkbox" id="showPass" onclick="showHidePass()" />
         <input type="submit" value="Register">
     </form>
     <a href="/login-page">Already have an account?</a>
+
 </body>
 
 </html>

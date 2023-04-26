@@ -6,14 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blogs</title>
-    <script src="../javascript/showPassword.js"></script>
+    <script src="/static/showPassword.js"></script>
+    <script src="/static/login.js"></script>
 </head>
 
 <body>
-    <form action="/login" method="POST">
-        <input type="username" placeholder="Username" required minlength="5" maxlength="10" name="username">
-        <input type="password" placeholder="Password" required minlength="5" maxlength="12" name="password" id="password">
-        <input type="checkbox" id="showPass">
+    <form method="GET" id="login">
+        <input type="username" placeholder="Username" required minlength="5" maxlength="10" id="username" class="loginInput">
+        <input type="password" placeholder="Password" required minlength="5" maxlength="12" id="password" class="loginInput">
+        <input type="checkbox" id="showPass" onclick="showHidePass()">
         <input type="submit" value="Register">
     </form>
     <a href="/">Don't have an account?</a>
@@ -21,4 +22,5 @@
 
 </html>
 </body>
+
 </html>

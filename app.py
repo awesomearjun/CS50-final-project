@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, json
 import sqlite3
 
 app = Flask(__name__)
@@ -42,21 +42,21 @@ def success():
     return render_template("success.html")
 
 
-@app.route("/login", methods=["POST"])
-def login():
-    username = request.form.get("username")
-    password = request.form.get("password")
+@app.route("/validate-user")
+def validate_user():
+    username_input = request.args.get("username")
+    password_input = request.args.get("password")
 
     cursor.execute("SELECT * FROM users")
     rows = cursor.fetchall()
 
-    for rowIndex, row in enumerate(rows):
+    for row_index, row in enumerate(rows):
         row = list(row)
         row = row[1:]
         row = tuple(row)
-        rows[rowIndex] = row
+        rows[row_index] = row
 
-    if (username, password) in rows:
-        return redirect("/success")
+    if (username_input, password_input) in rows:
+        return '{"userExists": "true"}'
 
-    return redirect("/failure")
+    return '{"userExists": "false"}'
