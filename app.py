@@ -60,3 +60,8 @@ def validate_user():
         return '{"userExists": "true"}'
 
     return '{"userExists": "false"}'
+
+
+@app.route("/viewblogs")
+def viewblogs():
+    cursor.execute("SELECT * FROM ")
