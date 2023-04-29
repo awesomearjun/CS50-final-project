@@ -24,7 +24,7 @@ def register():
         "INSERT INTO users (username, password) VALUES (?, ?)", (username, password))
     connection.commit()
 
-    return render_template("success.html")
+    return redirect("/viewblogs")
 
 
 @app.route("/login-page")
@@ -63,5 +63,21 @@ def validate_user():
 
 
 @app.route("/viewblogs")
-def viewblogs():
-    cursor.execute("SELECT * FROM ")
+def view_blogs():
+    cursor.execute("SELECT * FROM blogs")
+    rows = cursor.fetchall()
+    data = list()
+
+    for row in rows:
+        print(row)
+        data_dict = dict()
+        cursor.execute("SELECT username FROM users WHERE id=(SELECT posterID FROM blogs WHERE posterID=?)", str(row[1]))
+        data_dict["user"] = str(cursor.fetchall())
+        data_dict["user"] = data_dict["user"].replace("[", "").replace("]", "").replace("'", "").replace(",", "").replace("(", "").replace(")", "")
+        print(data_dict["user"])
+        data_dict["title"] = row[2]
+        data_dict["description"] = row[3]
+        data_dict["content"] = row[4]
+        data.append(data_dict)
+
+    return render_template("viewblogs.html", data=data)

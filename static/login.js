@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function alertPassWrong(data) {
         if (data.userExists === "true") {
-            window.location.replace("/success");
+            window.location.replace("/viewblogs");
         } else {
             alert("Wrong username or password");
             document.querySelectorAll(".loginInput").forEach(input => {
