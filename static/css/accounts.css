@@ -32,7 +32,7 @@ input[type=checkbox] {
 input[type=submit] {
     transition: 0.45s;
     background-color: #E34234;
-    color: #FCF;
+    color: rgb(255, 255, 255);
     cursor: pointer;
     font-family: 'Pacifico', cursive;
     font-size: 1.5rem;
@@ -44,7 +44,7 @@ input[type=submit]:hover {
 }
 
 a {
-    color: #FCF;
+    color: rgb(255, 255, 255);
     font-family: 'Kalam', cursive;
     font-size: 1.2rem;
     margin-left: 0.1rem;
