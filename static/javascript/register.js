@@ -16,9 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                     const post = JSON.stringify(postObject)
                     console.log(post);
-                    xhttp.open("POST", "/register", true);
+                    xhttp.open("POST", "/register", false);
                     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     xhttp.send(post);
+                    window.location.replace("/viewblogs")
                 }
             })
     });
