@@ -21,14 +21,26 @@ input {
     text-align: center;
 }
 
+input[type=checkbox] {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    top: 1.051rem;
+    accent-color: #E34234;
+}
 
 input[type=submit] {
+    transition: 0.45s;
     background-color: #E34234;
     color: #FCF;
     cursor: pointer;
     font-family: 'Pacifico', cursive;
     font-size: 1.5rem;
     margin-left: 2.5rem;
+}
+
+input[type=submit]:hover {
+    background-color: #b84035;
 }
 
 a {
