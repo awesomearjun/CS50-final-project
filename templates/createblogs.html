@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blogs</title>
     <script src="/static/createBlog.js"></script>
+    <script src="/static/showPassword.js"></script>
 </head>
 
 <body>
@@ -19,6 +20,7 @@
         <br>
         <input name="username" type="username" placeholder="Username" id="username" minlength="5" maxlength="12">
         <input type="password" name="password" placeholder="Password" id="password" minlength="5" maxlength="12">
+        <input type="checkbox" onclick="showHidePass()">
         <input type="submit" value="Submit">
     </form>
     <a href="/viewblogs">&#60;&#60;&#60; Go back</a>
