@@ -98,15 +98,14 @@ def view_blogs():
 
 @app.route("/createblog", methods=["POST"])
 def createblog():
-    data = request.get_json()
-    data = json.loads(data)
+    data = request.get_json(force=True)
 
     print(data["username"], data["password"], data["title"], data["description"], data["content"])
 
     if not data["title"] or not data["description"] or not data["content"] or not data["username"] or not data["password"]:
         return
 
-    cursor.execute("INSERT INTO blogs (poster_id, title, description, content) VALUES ((SELECT id FROM users WHERE username=? AND password=?), ?, ?, ?)", (data["username"], data["password"], data["title"], data["description"], data["content"]))
+    cursor.execute("INSERT INTO blogs (posterId, title, description, content) VALUES ((SELECT id FROM users WHERE username=? AND password=?), ?, ?, ?)", (data["username"], data["password"], data["title"], data["description"], data["content"]))
     connection.commit()
 
     return jsonify(status=200) 
