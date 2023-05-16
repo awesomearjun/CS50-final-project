@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, redirect, flash
+from flask import Flask, render_template, request, redirect, jsonify
 import sqlite3
+import json
 
 app = Flask(__name__)
 connection = sqlite3.connect("blogs.db", check_same_thread=False)
@@ -30,34 +31,23 @@ def username_exists():
 
 @app.route("/register", methods=["POST"])
 def register():
-    username = request.form.get("username")
-    password = request.form.get("password")
+    data = request.get_json(force=True)
 
-    print(username, password)
+    print(data["username"], data["password"])
 
-    if not username or not password:
+    if not data["username"] or not data["password"]:
         return
 
     cursor.execute(
-        "INSERT INTO users (username, password) VALUES (?, ?)", (username, password))
+        "INSERT INTO users (username, password) VALUES (?, ?)", (data["username"], data["password"]))
     connection.commit()
-    return redirect("/viewblogs")
+
+    return jsonify(status=200)
 
 
 @ app.route("/login-page")
 def login_page():
     return render_template("login.html")
-
-
-@ app.route("/failure")
-def failure():
-    return render_template("failure.html")
-
-
-@ app.route("/success")
-def success():
-    return render_template("success.html")
-
 
 @ app.route("/validate-user")
 def validate_user():
@@ -105,3 +95,18 @@ def view_blogs():
         data.append(data_dict)
 
     return render_template("viewblogs.html", data=data)
+
+@app.route("/createblog", methods=["POST"])
+def createblog():
+    data = request.get_json()
+    data = json.loads(data)
+
+    print(data["username"], data["password"], data["title"], data["description"], data["content"])
+
+    if not data["title"] or not data["description"] or not data["content"] or not data["username"] or not data["password"]:
+        return
+
+    cursor.execute("INSERT INTO blogs (poster_id, title, description, content) VALUES ((SELECT id FROM users WHERE username=? AND password=?), ?, ?, ?)", (data["username"], data["password"], data["title"], data["description"], data["content"]))
+    connection.commit()
+
+    return jsonify(status=200) 
