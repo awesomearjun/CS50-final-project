@@ -1,3 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
 * {
     color: white;
+}
+
+.blog {
+    display: inline-block;
+    margin-left: 2rem;
+    background-color: #1a67ed;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.blog .title {
+    font-size: 2rem;
+    font-family: 'Pacifico', cursive;
+}
+
+.blog .description {
+    font-size: 1.5rem;
+    font-family: 'Raleway', sans-serif;
+}
+
+.blog .content {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.blog .author {
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    background-color: #E34234;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.45s;
+}
+
+a:hover {
+    background-color: #b84035;
 }

@@ -11,16 +11,20 @@
 </head>
 
 <body>
+    <br>
+    <a href="/createblogs">Create a blog</a>
+    <br><br><br>
     {% for blog in data %}
     <div class="blog">
         <div class="title">{{ blog["title"] }}</div>
         <div class="description">{{ blog["description"] }}</div>
+        <hr>
         <div class="content">{{ blog["content"] }}</div>
-        <div class="author">Posted by: {{ blog["user"] }}</div>
+        <hr>
         <br>
+        <div class="author">Posted by: {{ blog["user"] }}</div>
     </div>
     {% endfor %}
-    <a href="/createblogs">Create a blog &#62;&#62;&#62;</a>
 </body>
 
 </html>
