@@ -9,9 +9,13 @@
     <script src="/static/javascript/createBlog.js"></script>
     <script src="/static/javascript/showPassword.js"></script>
     <link rel="stylesheet" href="/static/css/master.css">
+    <link rel="stylesheet" href="/static/css/createblogs.css">
 </head>
 
 <body>
+    <br>
+    <a href="/viewblogs">Go back</a>
+    <br><br><br>
     <form method="GET" id="createBlog">
         <input type="text" name="title" placeholder="Title" minlength="5" maxlength="20" id="title">
         <br>
@@ -22,9 +26,9 @@
         <input name="username" type="username" placeholder="Username" id="username" minlength="5" maxlength="12">
         <input type="password" name="password" placeholder="Password" id="password" minlength="5" maxlength="12">
         <input type="checkbox" onclick="showHidePass()">
+        <br>
         <input type="submit" value="Submit">
     </form>
-    <a href="/viewblogs">&#60;&#60;&#60; Go back</a>
 </body>
 
 </html>

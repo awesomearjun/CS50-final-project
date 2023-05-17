@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+body {
+    text-align: center;
+}
+
+a,
+input[type=submit] {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #E34234;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.45s;
+}
+
+a:hover,
+input[type=submit]:hover {
+    background-color: #b84035;
+}
+
+input,
+textarea {
+    border: none;
+    margin-left: 0;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+input[type=checkbox] {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    top: 1.15rem;
+    accent-color: #E34234;
+}
