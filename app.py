@@ -49,6 +49,7 @@ def register():
 def login_page():
     return render_template("login.html")
 
+
 @ app.route("/validate-user")
 def validate_user():
     username_input = request.args.get("username")
@@ -76,7 +77,7 @@ def create_blog():
 
 @ app.route("/viewblogs")
 def view_blogs():
-    cursor.execute("SELECT * FROM blogs")
+    cursor.execute("SELECT * FROM blogs ORDER BY id DESC")
     rows = cursor.fetchall()
     data = list()
 
@@ -96,16 +97,19 @@ def view_blogs():
 
     return render_template("viewblogs.html", data=data)
 
+
 @app.route("/createblog", methods=["POST"])
 def createblog():
     data = request.get_json(force=True)
 
-    print(data["username"], data["password"], data["title"], data["description"], data["content"])
+    print(data["username"], data["password"], data["title"],
+          data["description"], data["content"])
 
     if not data["title"] or not data["description"] or not data["content"] or not data["username"] or not data["password"]:
         return
 
-    cursor.execute("INSERT INTO blogs (posterId, title, description, content) VALUES ((SELECT id FROM users WHERE username=? AND password=?), ?, ?, ?)", (data["username"], data["password"], data["title"], data["description"], data["content"]))
+    cursor.execute("INSERT INTO blogs (posterId, title, description, content) VALUES ((SELECT id FROM users WHERE username=? AND password=?), ?, ?, ?)",
+                   (data["username"], data["password"], data["title"], data["description"], data["content"]))
     connection.commit()
 
-    return jsonify(status=200) 
+    return jsonify(status=200)
