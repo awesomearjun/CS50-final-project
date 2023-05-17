@@ -84,7 +84,7 @@ def view_blogs():
         print(row)
         data_dict = dict()
         cursor.execute(
-            "SELECT username FROM users WHERE id=(SELECT posterID FROM blogs WHERE posterID=?)", str(row[1]))
+            "SELECT username FROM users WHERE id=(SELECT posterID FROM blogs WHERE posterID=?)", (str(row[1]),))
         data_dict["user"] = str(cursor.fetchall())
         data_dict["user"] = data_dict["user"].replace("[", "").replace("]", "").replace(
             "'", "").replace(",", "").replace("(", "").replace(")", "")

@@ -27,9 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             const post = JSON.stringify(postObject)
             console.log(post);
-            xhttp.open("POST", "/createblog", true);
+            xhttp.open("POST", "/createblog", false);
             xhttp.setRequestHeader("Content-Type", "application/json");
             xhttp.send(post);
+            window.location.replace("/viewblogs")
         }
     });
 });
