@@ -4,6 +4,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
+:root {
+    --dialog-padding: 1.5rem;
+}
+
 body {
     text-align: center;
 }
@@ -12,31 +16,60 @@ body {
     color: white;
 }
 
+.blog,
+dialog {
+    background-color: #1a67ed;
+    border-radius: 0.5rem;
+    padding: var(--dialog-padding);
+    text-align: center;
+    border: none;
+}
+
 .blog {
     display: inline-block;
-    margin-left: 2rem;
-    background-color: #1a67ed;
+    text-overflow: ellipsis;
+    cursor: pointer;
     margin-bottom: 2rem;
-    border-radius: 0.5rem;
-    padding: 1.5rem;
+    margin-left: 2rem;
+}
+
+dialog {
+    width: 35rem;
+    height: 35rem;
+    padding-top: 0;
     text-align: center;
 }
 
-.blog .title {
+dialog .close {
+    background: none;
+    float: right;
+    border: none;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 3rem;
+}
+
+.blog .title,
+dialog .title {
     font-size: 2rem;
     font-family: 'Pacifico', cursive;
 }
 
-.blog .description {
+.blog .description,
+dialog .description {
     font-size: 1.5rem;
     font-family: 'Raleway', sans-serif;
 }
 
-.blog .content {
+.blog .content,
+dialog .content {
     font-family: 'Ubuntu', sans-serif;
 }
 
-.blog .author {
+.blog .author,
+dialog .author {
     font-family: 'Poppins', sans-serif;
 }
 

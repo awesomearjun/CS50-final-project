@@ -8,6 +8,7 @@
     <title>Blogs</title>
     <link rel="stylesheet" href="/static/css/master.css">
     <link rel="stylesheet" href="/static/css/viewblogs.css">
+    <script src="/static/javascript/viewBlogs.js"></script>
 </head>
 
 <body>
@@ -15,15 +16,27 @@
     <a href="/createblogs">Create a blog</a>
     <br><br><br>
     {% for blog in data %}
-    <div class="blog">
-        <div class="title">{{ blog["title"] }}</div>
-        <div class="description">{{ blog["description"] }}</div>
+    <button class="blog">
+        <p class="title">{{ blog["title"] }}</p>
+        <p class="description">{{ blog["description"] }}</p>
         <hr>
-        <div class="content">{{ blog["content"] }}</div>
+        <p class="content">{{ blog["content"] }}</p>
         <hr>
         <br>
-        <div class="author">Posted by: {{ blog["user"] }}</div>
-    </div>
+        <p class="author">Posted by: {{ blog["user"] }}</p>
+    </button>
+    <dialog>
+        <form method="dialog">
+            <input type="submit" class="close" value="&times;">
+        </form>
+        <p class="title">{{ blog["title"] }}</p>
+        <p class="description">{{ blog["description"] }}</p>
+        <hr>
+        <p class="content">{{ blog["content"] }}</p>
+        <hr>
+        <br>
+        <p class="author">Posted by: {{ blog["user"] }}</p>
+    </dialog>
     {% endfor %}
 </body>
 
