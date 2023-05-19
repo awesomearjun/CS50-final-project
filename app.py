@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, jsonify
 import sqlite3
-import json
 
 app = Flask(__name__)
 connection = sqlite3.connect("blogs.db", check_same_thread=False)
