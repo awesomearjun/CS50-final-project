@@ -4,4 +4,4 @@
 
 #### Description:
 
-Finally done.
+Beautiful, and easy-to-use blog creation software to create blogs and show them to the world!
